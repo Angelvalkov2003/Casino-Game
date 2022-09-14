@@ -200,13 +200,3 @@ function winWithSomething(winWaysSomething, winStreakSomething, getMoneyForWinSt
     money += getMoneyForWinStreakSomething(winStreakSomething);
     return money;
 }
-function winWithSomething(winWaysSomething, winStreakSomething, getMoneyForWinStreakSomething){
-    for (const winningPosition of winCondition) {
-        if (!winWaysSomething.includes(winningPosition)) {
-            break;
-        }
-        winStreakSomething++;
-    }
-
-    winnings += getMoneyForWinStreakSomething(winStreakSomething);
-}
