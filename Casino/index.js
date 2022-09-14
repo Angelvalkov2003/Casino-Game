@@ -127,10 +127,11 @@ function checkWin(){
     let winStreakLemon = 0;
     let winStreakSeven = 0;
 
-    winWithSomething(winWaysCherry, winStreakCherry, getMoneyForWinStreakCherry);
-    winWithSomething(winWaysGrape, winStreakGrape, getMoneyForWinStreakGrape);
-    winWithSomething(winWaysLemon, winStreakLemon, getMoneyForWinStreakLemon);
-    winWithSomething(winWaysSeven, winStreakSeven, getMoneyForWinStreakSeven);
+    winnings += winWithSomething(winWaysCherry, winStreakCherry, getMoneyForWinStreakCherry);
+    winnings += winWithSomething(winWaysGrape, winStreakGrape, getMoneyForWinStreakGrape);
+    winnings += winWithSomething(winWaysLemon, winStreakLemon, getMoneyForWinStreakLemon);
+    winnings += winWithSomething(winWaysSeven, winStreakSeven, getMoneyForWinStreakSeven);
+    }
     
 
     winStatus.textContent = `Your win is: ${winnings}`;
@@ -150,7 +151,7 @@ const getMoneyForWinStreakCherry = (winStreakCherry) => {
 };
 
 const getMoneyForWinStreakGrape = (winStreakGrape) => {
-    switch (winStreak) {
+    switch (winStreakGrape) {
         case 3:
             return 15;
         case 4:
@@ -163,7 +164,7 @@ const getMoneyForWinStreakGrape = (winStreakGrape) => {
 };
 
 const getMoneyForWinStreakLemon = (winStreakLemon) => {
-    switch (winStreak) {
+    switch (winStreakLemon) {
         case 3:
             return 12;
         case 4:
@@ -176,7 +177,7 @@ const getMoneyForWinStreakLemon = (winStreakLemon) => {
 };
 
 const getMoneyForWinStreakSeven = (winStreakSeven) => {
-    switch (winStreak) {
+    switch (winStreakSeven) {
         case 3:
             return 30;
         case 4:
@@ -187,6 +188,17 @@ const getMoneyForWinStreakSeven = (winStreakSeven) => {
             return 0;
     };
 };
+
+function winWithSomething(winWaysSomething, winStreakSomething, getMoneyForWinStreakSomething){
+    for (const winningPosition of winConditions) {
+        if (!winWaysSomething.includes(winningPosition)) {
+            break;
+        }
+        winStreakSomething++;
+    }
+    let money = 0;
+    money += getMoneyForWinStreakSomething(winStreakSomething);
+    return money;
 }
 function winWithSomething(winWaysSomething, winStreakSomething, getMoneyForWinStreakSomething){
     for (const winningPosition of winCondition) {
