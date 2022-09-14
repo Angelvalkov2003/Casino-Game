@@ -1,0 +1,55 @@
+body {
+    background-color: rgb(224, 96, 190);
+  }
+
+.cell{
+    width: 100px;
+    height: 100px;
+    border: 2px solid;
+    border-color: rgb(221, 56, 147);
+    box-shadow: 0 0 0 6px;
+    line-height: 75px;
+    background-color: black;
+    background-size: 100% 100%;
+    
+}
+
+
+#gameContainer{
+    background-color: rgb(238, 245, 36);
+}
+
+#winStatus{
+    text-shadow: 2px 2px 5px rgba(255, 0, 0, 0);
+    color: rgb(237, 11, 173);
+}
+
+#cellContainer{
+    display: grid;
+    grid-template-columns: repeat(5,auto);
+    width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+#title{
+    text-align: center;
+    text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
+}
+
+
+#rollBtn{
+  width: 200px;
+  height: 60px;
+  border: 3px solid rgb(244, 233, 22);
+  background-color: black;
+  color: rgb(233, 237, 11);
+  font-size: 30px;
+  text-shadow: 2px 2px 5px red;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor:pointer;
+}
