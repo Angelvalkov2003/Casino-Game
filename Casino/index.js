@@ -122,17 +122,55 @@ function checkWin(){
 
     let winnings = 0;
     for (const winCondition of winConditions) {
-    let winStreakCherry = 0;
+    let winStreak = 0;
+    for (const winningPosition of winCondition) {
+        if (!winWaysCherry.includes(winningPosition)) {
+            break;
+        }
+        winStreak++;
+    }
+
+    winnings += getMoneyForWinStreakCherry(winStreak);
+}
+
+for (const winCondition of winConditions) {
+    let winStreak = 0;
+    for (const winningPosition of winCondition) {
+        if (!winWaysGrape.includes(winningPosition)) {
+            break;
+        }
+        winStreak++;
+    }
+
+    winnings += getMoneyForWinStreakGrape(winStreak);
+}
+for (const winCondition of winConditions) {
+    let winStreak = 0;
+    for (const winningPosition of winCondition) {
+        if (!winWaysLemon.includes(winningPosition)) {
+            break;
+        }
+        winStreak++;
+    }
+
+    winnings += getMoneyForWinStreakLemon(winStreak);
+}
+for (const winCondition of winConditions) {
+    let winStreak = 0;
+    for (const winningPosition of winCondition) {
+        if (!winWaysSeven.includes(winningPosition)) {
+            break;
+        }
+        winStreak++;
+    }
+
+    winnings += getMoneyForWinStreakSeven(winStreak);
+}
+    
+
     let winStreakGrape = 0;
     let winStreakLemon = 0;
     let winStreakSeven = 0;
-
-    winnings += winWithSomething(winWaysCherry, winStreakCherry, getMoneyForWinStreakCherry);
-    winnings += winWithSomething(winWaysGrape, winStreakGrape, getMoneyForWinStreakGrape);
-    winnings += winWithSomething(winWaysLemon, winStreakLemon, getMoneyForWinStreakLemon);
-    winnings += winWithSomething(winWaysSeven, winStreakSeven, getMoneyForWinStreakSeven);
-    }
-    
 
     winStatus.textContent = `Your win is: ${winnings}`;
 }
@@ -189,14 +227,3 @@ const getMoneyForWinStreakSeven = (winStreakSeven) => {
     };
 };
 
-function winWithSomething(winWaysSomething, winStreakSomething, getMoneyForWinStreakSomething){
-    for (const winningPosition of winConditions) {
-        if (!winWaysSomething.includes(winningPosition)) {
-            break;
-        }
-        winStreakSomething++;
-    }
-    let money = 0;
-    money += getMoneyForWinStreakSomething(winStreakSomething);
-    return money;
-}
